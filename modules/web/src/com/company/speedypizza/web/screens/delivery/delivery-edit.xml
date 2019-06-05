@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.speedypizza.web.screens.delivery">
+    <data>
+        <instance id="deliveryDc"
+                  class="com.company.speedypizza.entity.Delivery"
+                  view="delivery-edit-view">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="deliveryDc">
+            <column width="250px">
+                <textField id="instructionsField" property="instructions"/>
+                <dateField id="arrivalTimeField" property="arrivalTime"/>
+                <textField id="deliveryAdressField" property="deliveryAdress"/>
+                <textField id="cityField" property="city"/>
+                <pickerField id="employerField" property="employer">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <checkBox id="isSuccessfulField" property="isSuccessful"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>
